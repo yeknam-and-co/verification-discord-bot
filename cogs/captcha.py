@@ -20,16 +20,16 @@ class captcha(commands.Cog):
         embed = discord.Embed(
             title="verification",
             description="click the button to verify your account.",
-            color=discord.Color.blurple())
+            color=discord.Color.blurple()) # make the embed
 
-        button = Button(label="verify", style=discord.ButtonStyle.green)
+        button = Button(label="verify", style=discord.ButtonStyle.green) # make a button object
 
-        async def button_callback(interaction: discord.Interaction):
-            await send_captcha(interaction, self.bot)
+        async def button_callback(interaction: discord.Interaction): # if the button is clicked, send the captcha
+            await send_captcha(interaction, self.bot, interaction.user)
 
-        button.callback = button_callback
-        view = View()
-        view.add_item(button)
+        button.callback = button_callback # set the buttons callback to the function to do that
+        view = View() # make a view object
+        view.add_item(button) # add the button to the view
 
         await interaction.response.send_message(embed=embed, view=view)
 
