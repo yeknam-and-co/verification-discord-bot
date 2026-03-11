@@ -14,6 +14,14 @@ async def on_ready():
     await bot.tree.sync()
     print("Commands synced!")
 
+
+@bot.event
+async def on_error(event, *args, **kwargs):
+    import traceback
+    print(f"Error in event {event}")
+    traceback.print_exc()
+
+    
 async def main(): # cogs
     async with bot:
         for i in os.listdir('cogs'):
@@ -22,7 +30,7 @@ async def main(): # cogs
                 print(f'Loaded cog {i[:-3]}')
             else:
                 print(f'Skipped {i} because it does not end with .py')
-                
+
         print("All cogs loaded!")
         await bot.start(TOKEN)
 

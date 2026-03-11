@@ -1,0 +1,18 @@
+# environment
+.env
+.venv/
+
+# python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# database
+*.db
+
+# generated captcha images
+*.png
+
+# optional setup scripts
+createdb.py
