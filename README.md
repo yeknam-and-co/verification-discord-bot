@@ -5,3 +5,9 @@ i dislike discord verification bots specially when they don't have a good purpos
 this is the most simple one i can possibly make on discord
 
 god bless discord.py god bless tyler zou
+
+python 3.10+
+captcha
+pip install -r requirements.txt
+
+ok thanks bye
