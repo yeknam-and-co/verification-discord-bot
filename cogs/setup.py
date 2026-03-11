@@ -10,7 +10,7 @@ class SetupView(View):
         self.selected_channel = None
         self.bot = bot
         self.channel_select = ChannelSelect(
-            placeholder="select a text channel",
+            placeholder="select the verification channel",
             min_values=1,
             max_values=1,
             channel_types=[discord.ChannelType.text],
@@ -77,12 +77,7 @@ class setupcommand(commands.Cog):
     @app_commands.command(name="setup", description="setup the bot for ur server, just resetup if you wanna change anything")
     @app_commands.checks.has_permissions(manage_guild=True)
     async def setup(self, interaction: discord.Interaction):
-        embed = discord.Embed(
-            title="setup",
-            description="setup the bot for ur server",
-            color=discord.Color.blurple(),
-        ) # make the embed
-        await interaction.response.send_message(embed=embed, view=SetupView(self.bot)) # send the embed and now we go to the setup view
+        await interaction.response.send_message(view=SetupView(self.bot)) # send the embed and now we go to the setup view
      
 async def setup(bot):
     await bot.add_cog(setupcommand(bot))
